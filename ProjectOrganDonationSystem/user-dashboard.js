@@ -12,7 +12,7 @@ let hdata;
 async function getHospitalsDetails(){
     const response= await axios.get("http://127.0.0.1:8000/getHospital");
      hdata=response.data;
-    console.log(typeof(hdata));
+   
 }
 getHospitalsDetails();
 
@@ -22,9 +22,7 @@ async function userDetails(){
     if(authToken){
         try{
             const id=authToken;
-            console.log(id)
             const response =  await axios.get(`http://127.0.0.1:8000/getUsersByTokenId?user_id=${id}`);
-            console.log(response);
             FirstName=response.data.first_name;
             LastName=response.data.last_name;
             email=response.data.email;
@@ -49,9 +47,7 @@ async function userDetails(){
 }
  document.addEventListener('DOMContentLoaded', function () {
     
-    userDetails();
-    console.log(FirstName);
-    
+    userDetails();    
     // Get all tab links and tab content elements
     const tabLinks = document.querySelectorAll('.nav-tabs .nav-link');
     // const tabContents = document.querySelectorAll('.tab-content .tab-pane');
